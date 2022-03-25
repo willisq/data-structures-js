@@ -29,14 +29,14 @@ Para este caso es necesario tomar en cuenta dos posibles escenarios:
 ```
 Add(value)
   pre: values is the value to add to the tail of the list
-	post: value has been placed at the tail of the list
-	n ← node(value)
-	if head = ø
-		head ← n
-		tail ← n 
-	else 
-		tail.next ← n
-		tail ← n
+  post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+  	tail ← n 
+  else 
+    tail.next ← n
+    tail ← n
 	end if
 end Add
 ```
