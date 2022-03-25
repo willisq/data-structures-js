@@ -33,10 +33,10 @@ Add(value)
   n ← node(value)
   if head = ø
     head ← n
-  	tail ← n 
+    tail ← n 
   else 
     tail.next ← n
     tail ← n
-	end if
+  end if
 end Add
 ```
