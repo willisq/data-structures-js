@@ -1,6 +1,6 @@
 # Lista Enlazada
 
-Una lista enlazada es una coleccion de elementos llamados nodos. cada nodo se compone en su forma mas sencilla de datos y una referencia al siguiente nodo de la lista.
+Una lista enlazada es una colección de elementos llamados nodos. cada nodo se compone en su forma mas sencilla de datos y una referencia al siguiente nodo de la lista.
 
 ![Lista enlazada](../../assets/lista-enlazada-simple.svg)
 
@@ -27,7 +27,7 @@ Para este caso es necesario tomar en cuenta dos posibles escenarios:
 1. La lista esta vacia, por lo que el nodo que se inserta ahora es la cabeza y la cola de la lista.
 2. La lista no esta vacia, por lo que se puede insertar el nuevo nodo al final de la lista, actualizando las referencias de la cola.
 ```
-Add(value)
+Append(value)
   Pre: values is the value to add to the tail of the list
   Post: value has been placed at the tail of the list
   n ← node(value)
@@ -38,7 +38,7 @@ Add(value)
     tail.next ← n
     tail ← n
   end if
-end Add
+end Append
 ```
 ### Agregar un nuevo elemento al inicio de la lista
 En este caso se deben considerar dos escenarios
