@@ -49,7 +49,7 @@ export default class LinkedList {
    * @returns 
    */
   contains(value){
-    let node = head;
+    let node = this.head;
     while (node && node.value !== value){
       node = node.next;
     }
@@ -57,6 +57,11 @@ export default class LinkedList {
     return true;
   }
 
+  /**
+   * Elimina el primer nodo cuyo valor coincida con el pasado en el parametro
+   * @param {any} value 
+   * @returns {LinkedList}
+   */
   delete(value){
     if(!this.head) return false;
     let node = this.head;
