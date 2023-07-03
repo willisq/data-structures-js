@@ -75,4 +75,15 @@ describe('LinkedList', () => {
         expect(list.toArray().length).toBe(3);
     });
 
+    it('should returns nth node in the list', () => {
+        const list = new LinkedList();
+        list.append(1);
+        list.append(2);
+        list.append(3);
+
+        expect(list.getNthNode(1).value).toBe(2);
+        expect(list.getNthNode(0).next.value).toBe(2);
+        expect(list.getNthNode(2).next).toBeNull();
+        expect(list.getNthNode(5)).toBeNull();
+    });
 });
