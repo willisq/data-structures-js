@@ -33,11 +33,11 @@ export default class LinkedList {
    * @param {any} value - Valor del nodo
    * @return {LinkedList}
    */
-  prepend(value){
+  prepend(value) {
     const node = new LinkedListNode(value);
     node.next = this.head;
     this.head = node;
-    if(this.tail === null){
+    if (this.tail === null) {
       this.tail = node;
     }
     return this;
@@ -48,40 +48,40 @@ export default class LinkedList {
    * @param {boolean} value - Valor del nodo a buscar en la lista enlazada
    * @returns 
    */
-  contains(value){
+  contains(value) {
     let node = this.head;
-    while (node && node.value !== value){
+    while (node && node.value !== value) {
       node = node.next;
     }
-    if(!node) return false;
+    if (!node) return false;
     return true;
   }
 
   /**
    * Elimina el primer nodo cuyo valor coincida con el pasado en el parametro
    * @param {any} value 
-   * @returns {LinkedList}
+   * @returns {boolean} - True si encuentra y elimina el nodo, falso en caso contrario
    */
-  delete(value){
-    if(!this.head) return false;
+  delete(value) {
+    if (!this.head) return false;
     let node = this.head;
-    if(node.value === value){
-      if(this.head === this.tail){
+    if (node.value === value) {
+      if (this.head === this.tail) {
         this.head = null;
         this.tail = null;
-      } else{
+      } else {
         this.head = this.head.next;
         return true;
       }
     }
-    while(node.next && node.next.value !== value){
+    while (node.next && node.next.value !== value) {
       node = node.next;
     }
-    if(!node.next){
-      if(node.next === this.tail){
+    if (!node.next) {
+      if (node.next === this.tail) {
         this.tail = node;
         this.tail.next = null;
-      } else{
+      } else {
         node.next = node.next.next;
       }
       return true;
@@ -109,9 +109,33 @@ export default class LinkedList {
    */
   toArray() {
     const arr = [];
-    this.transverse(node => {
+    this.traverse(node => {
       arr.push(node.value);
     })
     return arr;
+  }
+
+  /**
+   * Devuelve el n-simo nodo de la lista
+   * @param {number} nodeNumber posición indicial del nodo en la lista
+   * @returns {LinkedListNode}
+   */
+  getNthNode(nodeNumber) {
+    let node = this.head;
+    let i = 0;
+    while (node) {
+      if (i === nodeNumber) break;
+      i++;
+      node = node.next;
+    }
+    return node;
+  }
+
+  /**
+   * Devuelve la cantidad de nodos en la lista
+   * @type {number}
+   */
+  get size() {
+    return this.toArray().length;
   }
 }
