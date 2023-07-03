@@ -89,5 +89,29 @@ export default class LinkedList {
     return false;
   }
 
+  /**
+   * Recorre la lista ejecutando la funcion callback pasada como parametro
+   * @param {function} callback 
+   * @returns {LinkedList}
+   */
+  traverse(callback) {
+    let node = this.head;
+    while (node) {
+      callback(node);
+      node = node.next;
+    }
+    return this;
+  }
 
+  /**
+   * Devuelve un arreglo cuyas entradas son los valores de cada nodo de la lista
+   * @returns {any[]}
+   */
+  toArray() {
+    const arr = [];
+    this.transverse(node => {
+      arr.push(node.value);
+    })
+    return arr;
+  }
 }
